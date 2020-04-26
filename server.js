@@ -70,6 +70,28 @@ app.get('/details/:id',(req,res)=>{
     })
 })
 
+
+///////////////////////////////////////
+
+app.put('/update/:id',(req,res)=>{
+    const {name,img,level} = req.body;
+    const SQL = 'UPDATE digimon SET (name=$1,img=$2,level=$3) WHERE id=$4';
+    const value = [name,img,level,req.params.id];
+    client.query(SQL,value).then(result=>{
+        res.redirect(`/details/${req.params.id}`);
+    }).catch((err)=>errorHandler(err,req,res));
+})
+
+///////////////////////////////////////
+
+app.delete('/delete/:id',(req,res)=>{
+    const SQL = 'DELETE FROM digimon WHERE id=$1';
+    const value = [req.params.id];
+    client.query(SQL,value).then(result=>{
+        res.redirect('/');
+    }).catch((err)=>errorHandler(err,req,res));
+})
+
 //////////////////////////////////////
 
 function Digimon(digimon) {

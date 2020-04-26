@@ -11,6 +11,16 @@
             <img src="<%=theResults.img%>">
             <p><%=theResults.name%></p>
             <p><%=theResults.level%></p>
+
+            <form action="/update/<%=theResults.id%>_method=PUT" method="POST">
+                <textarea name="img"><%=theResults.img%></textarea>
+                <input type="text" name="name" value="<%=theResults.name%>">
+                <input type="text" name="level" value="<%=theResults.level%>">
+                <button>Update</button>
+            </form>
+            <form action="/delete/<%=theResults.id%>_method=DELETE" method="POST">
+                <button>DELETE</button>
+            </form>
         </section>
     </main>
 </body>
