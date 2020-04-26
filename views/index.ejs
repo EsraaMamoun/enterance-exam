@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <main>
+        <% allData.forEach((data)=>{%>
+            <section>
+                <img src="<%=data.img%>">
+                <p><%=data.name%></p>
+                <p><%=data.level%></p>
+                <button><a href="/details/<%=data.id%>">Details</a></button>
+            </section>
+            
+
+            <form action="/favourite/<%=data.id%>" method="POST">
+                <textarea name="img"><%=data.img%></textarea>
+                <input type="text" name="name" value="<%=data.name%>">
+                <input type="text" name="level" value="<%=data.level%>">
+                <button>Add to Favourite</button>
+            </form>
+        <%})%>
+    </main>
+</body>
+</html>
