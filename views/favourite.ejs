@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>favourite</title>
+</head>
+<body>
+    <main>
+        <% theData.forEach((data)=>{%>
+            <section>
+                <img src="<%=data.img%>">
+                <p><%=data.name%></p>
+                <p><%=data.level%></p>
+            </section>
+            <%})%>
+
+    </main>
+</body>
+</html>
